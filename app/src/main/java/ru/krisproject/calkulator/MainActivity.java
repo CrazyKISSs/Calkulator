@@ -14,7 +14,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private EditText pass;
-    private Button btn;
+    private Button btn, btn2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,12 +26,21 @@ public class MainActivity extends AppCompatActivity {
     public void addListenerOnButton() {
         pass = (EditText)findViewById(R.id.editText);
         btn = (Button)findViewById(R.id.button);
+        btn2 = (Button)findViewById(R.id.other_btn);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 btn.setText("Done");
                 btn.setBackgroundTintList(ColorStateList.valueOf(Color.GREEN));
                 Toast.makeText(MainActivity.this,pass.getText(),Toast.LENGTH_LONG).show();
+            }
+        });
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn.setText("Ups...");
+                btn.setBackgroundTintList(ColorStateList.valueOf(Color.RED));
+                Toast.makeText(MainActivity.this, "Ups....",Toast.LENGTH_LONG).show();
             }
         });
     }
